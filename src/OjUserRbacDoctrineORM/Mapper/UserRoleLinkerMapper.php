@@ -15,6 +15,10 @@ class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
      */
     protected $em;
 
+    /**
+     * @var ModuleOptions
+     *
+     */
     protected $options;
 
     /**
@@ -55,7 +59,16 @@ class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
      */
     public function insert($userRoleLinker, $tableName = null, HydratorInterface $hydrator = null)
     {
-        $this->checkEntity($userRoleLinker);
+        if (!$userRoleLinker instanceof UserRoleLinkerInterface) {
+            throw new Exception\InvalidArgumentException(
+                sprintf(
+                    '%s expects argument 1 to be an instance of UserRbac\Mapper\UserRoleLinkerMapperInterface, %s provided instead',
+                    __METHOD__,
+                    is_object($userRoleLinker) ? get_class($userRoleLinker) : gettype($userRoleLinker)  
+                )
+            );
+        }
+
         return $this->persist($entity);
     }
 
@@ -64,7 +77,16 @@ class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
      */
     public function delete($userRoleLinker, $tableName = null)
     {
-        $this->checkEntity($userRoleLinker);
+        if (!$userRoleLinker instanceof UserRoleLinkerInterface) {
+            throw new Exception\InvalidArgumentException(
+                sprintf(
+                    '%s expects argument 1 to be an instance of UserRbac\Mapper\UserRoleLinkerMapperInterface, %s provided instead',
+                    __METHOD__,
+                    is_object($userRoleLinker) ? get_class($userRoleLinker) : gettype($userRoleLinker)  
+                )
+            );
+        }
+
         return $this->em->remove($userRoleLinker);
     }
 
