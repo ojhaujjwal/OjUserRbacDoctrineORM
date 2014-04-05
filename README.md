@@ -1,6 +1,11 @@
 OjUserRbacDoctrineORM
 =====================
 
+[![Master Branch Build Status](https://api.travis-ci.org/ojhaujjwal/OjUserRbacDoctrineORM.png)](http://travis-ci.org/ojhaujjwal/OjUserRbacDoctrineORM)
+[![Latest Stable Version](https://poser.pugx.org/ujjwal/user-rbac-doctrine-orm/v/stable.png)](https://packagist.org/packages/ujjwal/user-rbac-doctrine-orm)
+[![Latest Unstable Version](https://poser.pugx.org/ujjwal/user-rbac-doctrine-orm/v/unstable.png)](https://packagist.org/packages/ujjwal/user-rbac-doctrine-orm)
+[![Total Downloads](https://poser.pugx.org/ujjwal/user-rbac-doctrine-orm/downloads.png)](https://packagist.org/packages/ujjwal/user-rbac-doctrine-orm)
+
 A Zend Framework 2 module to easily integrate [ZfcUserDoctrineORM](https://github.com/ZF-Commons/ZfcUserDoctrineORM) and [ZfcRbac]()
 
 Doctrine ORM Storage Adapter for [UserRbac](https://github.com/ojhaujjwal/UserRbac) module.
