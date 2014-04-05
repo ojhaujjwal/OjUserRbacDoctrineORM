@@ -7,7 +7,7 @@
     <mapped-superclass name="UserRbac\Entity\UserRoleLinker" table="user_role_linker">
 
         <id type="integer" column="user_id" name="userId"/>
-        <id type="integer" column="role_id" name="roleId"/>     
+        <id type="string" column="role_id" name="roleId"/>     
 
     </mapped-superclass>
 
