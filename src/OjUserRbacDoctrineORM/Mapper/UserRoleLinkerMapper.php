@@ -1,9 +1,8 @@
 <?php
 namespace OjUserRbacDoctrineORM\Mapper;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use OjUserRbacDoctrineORM\Options\ModuleOptions;
-use Zend\Stdlib\Hydrator\HydratorInterface;
 use UserRbac\Entity\UserRoleLinkerInterface;
 use UserRbac\Mapper\UserRoleLinkerMapperInterface;
 use ZfcUser\Entity\UserInterface;
@@ -11,7 +10,7 @@ use ZfcUser\Entity\UserInterface;
 class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
 {
     /**
-     * @var \Doctrine\ORM\EntityManager
+     * @var EntityManagerInterface
      */
     protected $em;
 
@@ -24,27 +23,30 @@ class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
     /**
      * Constructor
      *
-     * @param EntityManager $em
+     * @param EntityManagerInterface $em
      * @param ModuleOptions $options
      *
      * @return void
      */
-    public function __construct(EntityManager $em, ModuleOptions $options)
+    public function __construct(EntityManagerInterface $em, ModuleOptions $options)
     {
         $this->em       = $em;
         $this->options  = $options;
     }
 
     /**
-     * {@inheritDoc}
+     * Finds roles of a user by his/her id
+     *
+     * @param  int                                        $userId
+     * @return array
      */
     public function findByUserId($userId)
     {
         $er = $this->em->getRepository($this->options->getUserRoleLinkerEntityClass());
+
         return $er->findBy(array('userId' => $userId));
 
     }
-
 
     /**
      * {@inheritDoc}
@@ -52,56 +54,5 @@ class UserRoleLinkerMapper implements UserRoleLinkerMapperInterface
     public function findByUser(UserInterface $user)
     {
         return $this->findByUserId($user->getId());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function insert($userRoleLinker, $tableName = null, HydratorInterface $hydrator = null)
-    {
-        if (!$userRoleLinker instanceof UserRoleLinkerInterface) {
-            throw new Exception\InvalidArgumentException(
-                sprintf(
-                    '%s expects argument 1 to be an instance of UserRbac\Mapper\UserRoleLinkerMapperInterface, %s provided instead',
-                    __METHOD__,
-                    is_object($userRoleLinker) ? get_class($userRoleLinker) : gettype($userRoleLinker)  
-                )
-            );
-        }
-
-        return $this->persist($entity);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function delete($userRoleLinker, $tableName = null)
-    {
-        if (!$userRoleLinker instanceof UserRoleLinkerInterface) {
-            throw new Exception\InvalidArgumentException(
-                sprintf(
-                    '%s expects argument 1 to be an instance of UserRbac\Mapper\UserRoleLinkerMapperInterface, %s provided instead',
-                    __METHOD__,
-                    is_object($userRoleLinker) ? get_class($userRoleLinker) : gettype($userRoleLinker)  
-                )
-            );
-        }
-
-        return $this->em->remove($userRoleLinker);
-    }
-
-    /**
-     * Saves Entity 
-     *
-     * @param UserRoleLinkerInterface $entity
-     *
-     * @return UserRoleLinkerInterface
-     */
-    protected function persist($entity)
-    {
-        $this->em->persist($entity);
-        $this->em->flush();
-
-        return $entity;
     }
 }
