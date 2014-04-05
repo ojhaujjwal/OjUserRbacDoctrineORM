@@ -4,7 +4,10 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="OjUserRbacDoctrineORM\Entity\UserRoleLinker" table="user_role_linker">          
+    <entity name="OjUserRbacDoctrineORM\Entity\UserRoleLinker" table="user_role_linker">
+        <many-to-one target-entity='ZfcUser\Entity\User' field="user"></many-to-one>
+        <id type="string" column="role_id" name="roleId" field="user"/>
+        <id type="integer" column="user_id" name="user" field="user"/>
     </entity>
 
 </doctrine-mapping>

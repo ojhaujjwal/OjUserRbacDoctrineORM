@@ -6,7 +6,10 @@
     "keywords": [
         "zf2",
         "module",
-        "zendframework"
+        "zendframework",
+        "access-control",
+        "rbac",
+        "authorization"
     ],
     "homepage": "https://github.com/ojhaujjwal/OjUserRbacDoctrineORM",
     "authors": [
@@ -17,15 +20,12 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zf-commons/zfc-user-doctrine-orm": "0.1.*",
-        "ujjwal/user-rbac": "0.0.*"
+        "zf-commons/zfc-user-doctrine-orm": "dev-master",
+        "ujjwal/user-rbac": "dev-master"
     },
     "autoload": {
-        "psr-0": {
-            "OjUserRbacDoctrineORM": "src/"
-        },
-        "classmap": [
-            "./Module.php"
-        ]
+        "psr-4": {
+            "OjUserRbacDoctrineORM\\": "src/"
+        }
     }
 }
