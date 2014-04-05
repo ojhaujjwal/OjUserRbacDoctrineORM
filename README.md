@@ -28,6 +28,5 @@ return array(
 );
 ```
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ojhaujjwal/ojuserrbacdoctrineorm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+## WIP
+Work In Progress. Use at your own risk!
