@@ -15,6 +15,9 @@ class UserRoleLinkerMapperFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return new UserRoleLinkerMapper($serviceLocator->get('OjUserRbacDoctrineORM\Doctrine\Em'), $serviceLocator->get('UserRbac\ModuleOptions'));
+        return new UserRoleLinkerMapper(
+            $serviceLocator->get('OjUserRbacDoctrineORM\Doctrine\Em'), 
+            $serviceLocator->get('UserRbac\ModuleOptions')
+        );
     }
 }

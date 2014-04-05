@@ -2,7 +2,7 @@
 namespace OjUserRbacDoctrineORM\Mapper;
 
 use Doctrine\ORM\EntityManagerInterface;
-use OjUserRbacDoctrineORM\Options\ModuleOptionsInterface;
+use UserRbac\Options\ModuleOptionsInterface;
 use UserRbac\Mapper\UserRoleLinkerMapperInterface;
 use ZfcUser\Entity\UserInterface;
 

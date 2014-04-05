@@ -1,7 +1,7 @@
 OjUserRbacDoctrineORM
 =====================
 
-A Zend Framework 2 module to easily integrate ZfcUserDoctrineORM and ZfcRbac
+A Zend Framework 2 module to easily integrate [ZfcUserDoctrineORM](https://github.com/ZF-Commons/ZfcUserDoctrineORM) and [ZfcRbac]()
 
 Doctrine ORM Storage Adapter for [UserRbac](https://github.com/ojhaujjwal/UserRbac) module.
 
