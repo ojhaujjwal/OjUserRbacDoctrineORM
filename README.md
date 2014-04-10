@@ -16,3 +16,6 @@ Doctrine ORM Storage Adapter for [UserRbac](https://github.com/ojhaujjwal/UserRb
 2. Run command `vendor/bin/doctrine-module orm:schema-tool:update --force` to update schema
 4. Enable this module and `UserRbac` in `config/application.config.php`
 5. Copy file located in `vendor/ujjwal/user-rbac/config/user-rbac.global.php` to `./config/autoload/user-rbac.global.php` and change the values as you wish
+
+## Note
+Don't use this module. This is shit. If you use don't use Doctrine ORM, then use [UserRbac](https://github.com/ojhaujjwal/UserRbac) module.
